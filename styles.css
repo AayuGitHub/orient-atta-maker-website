@@ -18,6 +18,8 @@
   /* logo-ish electric blue */
   --brand-sky: #4DA3FF;
   /* soft highlight */
+
+  --bottom-header-h: 64px;
 }
 
 * {
@@ -29,6 +31,11 @@ body {
   margin: 0;
   padding: 0;
 }
+
+html {
+  scroll-padding-top: calc(var(--bottom-header-h) + 12px);
+}
+
 
 body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -407,6 +414,28 @@ body {
   pointer-events: none;
 }
 
+.bottom-header {
+  z-index: 999;
+  /* keep above hero */
+}
+
+/* JS will toggle this class for perfect “always visible” behavior */
+.bottom-header.is-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Prevent layout jump when header becomes fixed */
+.bottom-header-spacer {
+  height: 0;
+}
+
+.bottom-header.is-fixed+.bottom-header-spacer {
+  height: var(--bottom-header-h);
+}
+
 .bottom-inner {
   position: relative;
   z-index: 1;
@@ -677,13 +706,14 @@ body {
 }
 
 .hero-arrow:hover {
-  background: rgba(242, 106, 27, .92);
-  border-color: rgba(242, 106, 27, .95);
+  background: var(--brand-blue);
+  border-color: var(--brand-blue);
   transform: translateY(-50%) scale(1.03);
 }
 
-.hero-arrow:active {
-  transform: translateY(-50%) scale(.98);
+.hero-arrow:focus-visible {
+  outline: 3px solid rgba(43, 110, 255, .45);
+  outline-offset: 4px;
 }
 
 .hero-arrow:focus-visible {
@@ -710,8 +740,8 @@ body {
 }
 
 .dot.is-active {
-  background: var(--orange);
-  border-color: var(--orange);
+  background: var(--brand-blue);
+  border-color: var(--brand-blue);
   opacity: 1;
 }
 
@@ -1495,8 +1525,8 @@ table.compare {
 }
 
 .news-arrow:hover {
-  background: rgba(242, 106, 27, .92);
-  border-color: rgba(242, 106, 27, .92);
+  background: var(--brand-blue);
+  border-color: var(--brand-blue);
   transform: translateY(-50%) scale(1.03);
 }
 
@@ -1505,7 +1535,7 @@ table.compare {
 }
 
 .news-arrow:focus-visible {
-  outline: 3px solid rgba(242, 106, 27, .45);
+  outline: 3px solid rgba(43, 110, 255, .45);
   outline-offset: 4px;
 }
 
@@ -1528,8 +1558,8 @@ table.compare {
 }
 
 .news-dot.is-active {
-  background: var(--orange);
-  border-color: var(--orange);
+  background: var(--brand-blue);
+  border-color: var(--brand-blue);
   opacity: 1;
 }
 

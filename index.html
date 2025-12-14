@@ -112,6 +112,7 @@
         </form>
       </div>
     </div>
+    <div class="bottom-header-spacer" aria-hidden="true"></div>
   </header>
 
   <!-- Hero Slider -->
@@ -175,7 +176,7 @@
   <!-- Product Range Snapshot (after hero) -->
   <!-- <section class="section range" id="range" aria-label="Product Range">
     <div class="container"> -->
-      <!-- <div class="range-head">
+  <!-- <div class="range-head">
         <div>
           <h2>Explore the Orient Range</h2>
           <p>
@@ -189,9 +190,9 @@
         </div>
       </div> -->
 
-      <!-- <div class="range-grid"> -->
-        <!-- SS Body -->
-        <!-- <article class="range-card" aria-label="S.S. Body Range">
+  <!-- <div class="range-grid"> -->
+  <!-- SS Body -->
+  <!-- <article class="range-card" aria-label="S.S. Body Range">
           <div class="range-card__top">
             <div class="range-kicker">S.S. Body</div>
             <h3 class="range-title">Deluxe & Square Models</h3>
@@ -236,9 +237,9 @@
           </div>
         </article> -->
 
-        <!-- Stoneless -->
-        <!-- <article class="range-card range-card--soft" aria-label="Stoneless Fully Automatic Range"> -->
-          <!-- <div class="range-card__top">
+  <!-- Stoneless -->
+  <!-- <article class="range-card range-card--soft" aria-label="Stoneless Fully Automatic Range"> -->
+  <!-- <div class="range-card__top">
             <div class="range-kicker">Stoneless</div>
             <h3 class="range-title">Fully Automatic Flour Mill</h3>
             <p class="range-sub">
@@ -253,8 +254,8 @@
             </div>
           </div> -->
 
-          <!-- Main preview + 6 design tiles (minimal + premium) -->
-          <!-- <div class="design-wrap" aria-label="Designs and colours">
+  <!-- Main preview + 6 design tiles (minimal + premium) -->
+  <!-- <div class="design-wrap" aria-label="Designs and colours">
             <div class="design-preview">
               <img id="stonelessMain" src="Orient_Images/stoneless/design-1.png" alt="Stoneless design preview"
                 loading="lazy" />
@@ -280,12 +281,12 @@
             </div>
           </div> -->
 
-          <!-- <div class="range-actions-inline">
+  <!-- <div class="range-actions-inline">
             <a class="btn btn-primary" href="#contact">Enquire for Stoneless</a>
             <a class="btn btn-outline" href="#products">View All Products</a>
           </div> -->
-        <!-- </article> -->
-      <!-- </div>
+  <!-- </article> -->
+  <!-- </div>
     </div>
   </section> -->
 
@@ -863,6 +864,36 @@
       const open = nav.classList.toggle("is-open");
       menuBtn.setAttribute("aria-expanded", String(open));
     });
+
+    // ===== Keep bottom header always visible on scroll (robust) =====
+    (() => {
+      const topHeader = document.querySelector(".top-header");
+      const bottomHeader = document.querySelector(".bottom-header");
+      if (!topHeader || !bottomHeader) return;
+
+      const setHeaderHeightVar = () => {
+        document.documentElement.style.setProperty(
+          "--bottom-header-h",
+          `${bottomHeader.offsetHeight}px`
+        );
+      };
+
+      const onScroll = () => {
+        const shouldFix = window.scrollY > topHeader.offsetHeight;
+        bottomHeader.classList.toggle("is-fixed", shouldFix);
+      };
+
+      setHeaderHeightVar();
+      onScroll();
+
+      window.addEventListener("resize", () => {
+        setHeaderHeightVar();
+        onScroll();
+      });
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+    })();
+
   </script>
 
   <!-- Floating WhatsApp + Call (Bottom-Left) -->
