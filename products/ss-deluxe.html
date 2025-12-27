@@ -158,14 +158,14 @@
         <div class="pdp-stage pdp-stage--combined" aria-label="Product visual stage">
           <!-- Background used for both PHOTO and future 3D placement -->
           <!-- <img class="pdp-stage__bg"
-               src="/Orient_Images/hero-bg-kitchen.png"
+               src="../Orient_Images/hero-bg-kitchen.png"
                alt=""
                loading="eager"
                decoding="async" /> -->
 
           <!-- PHOTO MODE: overlay product PNG on the countertop background -->
           <img class="pdp-stage__product"
-               src="/Orient_Images/deluxe_model_bg_product.png"
+               src="../Orient_Images/deluxe_model_bg_product.png"
                alt="Orient SS Body Deluxe Model atta maker"
                loading="eager"
                decoding="async" />
@@ -257,17 +257,17 @@
         </div>
 
         <div class="pdp-gallery">
-          <a class="pdp-gallery__item" href="/Orient_Images/deluxe_01.png">
-            <img src="/Orient_Images/deluxe_01.png" alt="Deluxe model — front view" loading="lazy" decoding="async">
+          <a class="pdp-gallery__item" href="../Orient_Images/deluxe_01.png">
+            <img src="../Orient_Images/deluxe_01.png" alt="Deluxe model — front view" loading="lazy" decoding="async">
           </a>
-          <a class="pdp-gallery__item" href="/Orient_Images/deluxe_02.png">
-            <img src="/Orient_Images/deluxe_02.png" alt="Deluxe model — side view" loading="lazy" decoding="async">
+          <a class="pdp-gallery__item" href="../Orient_Images/deluxe_02.png">
+            <img src="../Orient_Images/deluxe_02.png" alt="Deluxe model — side view" loading="lazy" decoding="async">
           </a>
-          <a class="pdp-gallery__item" href="/Orient_Images/deluxe_03.png">
-            <img src="/Orient_Images/deluxe_03.png" alt="Deluxe model — top view" loading="lazy" decoding="async">
+          <a class="pdp-gallery__item" href="../Orient_Images/deluxe_03.png">
+            <img src="../Orient_Images/deluxe_03.png" alt="Deluxe model — top view" loading="lazy" decoding="async">
           </a>
-          <a class="pdp-gallery__item" href="/Orient_Images/deluxe_04.png">
-            <img src="/Orient_Images/deluxe_04.png" alt="Deluxe model — hopper close" loading="lazy" decoding="async">
+          <a class="pdp-gallery__item" href="../Orient_Images/deluxe_04.png">
+            <img src="../Orient_Images/deluxe_04.png" alt="Deluxe model — hopper close" loading="lazy" decoding="async">
           </a>
         </div>
       </div>
@@ -303,6 +303,7 @@
         <p>Phone: +91 XXXXX XXXXX</p>
         <p>Email: info@_____.com</p>
       </div>
+      <span id="year" class="sr-only"></span>
     </div>
   </footer>
 
@@ -344,8 +345,11 @@
       window.addEventListener("scroll", onScroll, { passive: true });
     })();
 
-    // Footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Footer year (guarded)
+    (() => {
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    })();
   </script>
 </body>
 </html>
