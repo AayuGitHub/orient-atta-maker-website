@@ -2421,3 +2421,339 @@ table.compare {
     transform: none;
   }
 }
+
+/* =========================
+   Warranty Page Styles
+   ========================= */
+
+body.page-warranty {
+  background: var(--brandbar-900);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.warranty-header {
+  padding: 18px 0;
+  display: flex;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.warranty-header .logo-badge {
+  background: rgba(255, 255, 255, 0.95);
+  /* Make logo pop on dark */
+}
+
+.warranty-header .logo-tagline {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Viewport / Hero */
+.warranty-viewport {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(800px 500px at 10% 20%, rgba(43, 110, 255, 0.15), transparent 60%),
+    radial-gradient(600px 400px at 90% 80%, rgba(242, 106, 27, 0.12), transparent 50%);
+}
+
+.warranty-container {
+  position: relative;
+  z-index: 5;
+  width: min(1000px, 92%);
+}
+
+.warranty-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .warranty-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+}
+
+/* Text Side */
+.warranty-text {
+  color: #fff;
+}
+
+.badgex {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  background: rgba(242, 106, 27, 0.1);
+  border: 1px solid rgba(242, 106, 27, 0.3);
+  padding: 6px 10px;
+  border-radius: 99px;
+  margin-bottom: 16px;
+}
+
+.warranty-text h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+
+.warranty-text .lead {
+  font-size: 18px;
+  opacity: 0.85;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.highlight {
+  color: var(--brand-sky);
+  font-weight: 700;
+}
+
+.benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .benefit-list {
+    align-items: center;
+    /* center bullets on mobile */
+  }
+}
+
+.benefit-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.check-icon {
+  width: 20px;
+  height: 20px;
+  background: var(--brand-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #fff;
+  font-weight: 900;
+}
+
+/* Form Side (Glass Card) */
+.warranty-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  padding: 32px;
+  border-radius: 24px;
+  text-align: left;
+}
+
+.form-h h2 {
+  color: #fff;
+  margin: 0 0 6px;
+}
+
+.form-h p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  margin: 0 0 22px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  /* slightly lighter input */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--brand-sky);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 4px rgba(43, 110, 255, 0.15);
+}
+
+.input-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.6;
+  font-size: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 14px;
+}
+
+.btn-pulse {
+  margin-top: 10px;
+  background: var(--orange);
+  font-size: 16px;
+  padding: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-pulse:hover {
+  background: #ff7b30;
+  box-shadow: 0 10px 25px rgba(242, 106, 27, 0.3);
+}
+
+.form-footnote {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+  text-align: center;
+  margin-top: 16px;
+}
+
+/* Success Card */
+.success-card {
+  text-align: center;
+  padding: 40px 20px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.success-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  animation: bounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(0);
+  }
+
+  70% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.success-card h2 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.success-card p {
+  opacity: 0.8;
+  margin-bottom: 24px;
+}
+
+.bonus-badge {
+  display: inline-block;
+  background: #1EBE5A;
+  color: #fff;
+  font-weight: 800;
+  padding: 10px 18px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 20px rgba(30, 190, 90, 0.2);
+}
+
+.success-msg {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+/* Footer */
+.warranty-footer {
+  text-align: center;
+  padding: 20px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 13px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Confetti */
+.confetti {
+  position: absolute;
+  top: -10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  pointer-events: none;
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(105vh) rotate(360deg);
+  }
+}
