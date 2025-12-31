@@ -2604,7 +2604,8 @@ body.page-warranty {
 }
 
 .form-group input,
-.form-group select {
+.form-group select,
+.form-group textarea {
   width: 100%;
   background: rgba(255, 255, 255, 0.08);
   /* slightly lighter input */
@@ -2616,6 +2617,7 @@ body.page-warranty {
   font-weight: 500;
   font-size: 15px;
   transition: all 0.2s ease;
+  resize: vertical;
 }
 
 .form-group input:focus,
