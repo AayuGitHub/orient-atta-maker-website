@@ -30,6 +30,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 html {
@@ -2621,11 +2622,19 @@ body.page-warranty {
 }
 
 .form-group input:focus,
-.form-group select:focus {
+.form-group select:focus,
+.form-group textarea:focus {
   outline: none;
   border-color: var(--brand-sky);
   background: rgba(255, 255, 255, 0.12);
   box-shadow: 0 0 0 4px rgba(43, 110, 255, 0.15);
+}
+
+/* Dark styling for dropdown options */
+.form-group select option {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 12px;
 }
 
 .input-icon {
