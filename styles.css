@@ -1022,6 +1022,232 @@ table.compare {
   background: linear-gradient(180deg, #FFFFFF 0%, rgba(43, 110, 255, .03) 100%);
 }
 
+/* Lifestyle Card (Hero Image Background) */
+.range-card--lifestyle {
+  background: #1a1a2e;
+  border: none;
+  min-height: 340px;
+}
+
+.range-card--lifestyle::before {
+  display: none;
+}
+
+.range-hero-link {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  text-decoration: none;
+  color: #fff;
+  overflow: hidden;
+  border-radius: calc(var(--radius) + 6px);
+}
+
+.range-hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.range-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+.range-hero-link:hover .range-hero-media img {
+  transform: scale(1.05);
+  filter: brightness(1.05);
+}
+
+.range-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+      rgba(15, 23, 42, 0.15) 0%,
+      rgba(15, 23, 42, 0.35) 50%,
+      rgba(15, 23, 42, 0.75) 100%);
+  z-index: 1;
+}
+
+.range-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  min-height: 340px;
+}
+
+.range-hero-content .range-kicker {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 6px;
+}
+
+.range-hero-content .range-title {
+  color: #fff;
+  font-size: 26px;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.range-hero-content .range-sub {
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 40ch;
+  margin-bottom: 16px;
+}
+
+.range-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: var(--orange);
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  width: fit-content;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.range-hero-link:hover .range-hero-cta {
+  background: #ff7b30;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(242, 106, 27, 0.4);
+}
+
+/* Range Card Carousel */
+.range-card--carousel {
+  position: relative;
+}
+
+.range-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  border-radius: calc(var(--radius) + 6px);
+  overflow: hidden;
+}
+
+.range-carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+}
+
+.range-carousel-slide {
+  position: absolute;
+  inset: 0;
+  display: none;
+  text-decoration: none;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.range-carousel-slide.is-active {
+  display: block;
+  opacity: 1;
+}
+
+.range-carousel-slide .range-hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.range-carousel-slide .range-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.range-carousel-slide:hover .range-hero-media img {
+  transform: scale(1.05);
+}
+
+.range-carousel-slide .range-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  min-height: 340px;
+}
+
+/* Carousel Arrows */
+.range-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1a1a2e;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.range-carousel-arrow:hover {
+  background: #fff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.range-carousel-arrow--prev {
+  left: 16px;
+}
+
+.range-carousel-arrow--next {
+  right: 16px;
+}
+
+/* Carousel Dots */
+.range-carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+}
+
+.range-carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.range-carousel-dot.is-active {
+  background: #fff;
+  border-color: #fff;
+}
+
+.range-carousel-dot:hover {
+  border-color: #fff;
+}
+
 .range-card__top {
   position: relative;
   z-index: 1;
@@ -1257,6 +1483,55 @@ table.compare {
   height: 280px;
   object-fit: contain;
   display: block;
+}
+
+/* Lifestyle Design Preview (Kitchen Scene) */
+.design-wrap--lifestyle {
+  padding: 0 18px 18px;
+}
+
+.design-preview-link {
+  display: block;
+  text-decoration: none;
+}
+
+.design-preview--lifestyle {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(15, 26, 51, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.design-preview--lifestyle img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.design-preview-link:hover .design-preview--lifestyle {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px rgba(15, 26, 51, 0.18);
+}
+
+.design-preview-link:hover .design-preview--lifestyle img {
+  transform: scale(1.05);
+}
+
+.design-preview-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  font-weight: 800;
+  font-size: 13px;
+  color: rgba(15, 26, 51, 0.9);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .design-grid {
