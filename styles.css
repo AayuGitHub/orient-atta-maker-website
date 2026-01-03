@@ -2370,7 +2370,7 @@ table.compare {
   filter: drop-shadow(0 26px 30px rgba(2, 6, 23, .22));
 }
 
-/* Combined photo mode: use a single image that fills the whole stage */
+/* combined mode... */
 .pdp-stage--combined .pdp-stage__product {
   left: 0;
   bottom: 0;
@@ -2382,13 +2382,22 @@ table.compare {
   filter: none;
 }
 
+/* 3D Wrapper */
+.pdp-stage__3d-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  /* Shows above background layer */
+}
+
 /* 3D model placeholder styles */
 .pdp-stage__model {
   position: absolute;
-  left: 50%;
-  bottom: -2%;
-  transform: translateX(-50%);
-  width: min(720px, 78%);
+  left: 0;
+  top: 0;
+  width: 100%;
   height: 100%;
   z-index: 3;
 }
@@ -3041,5 +3050,309 @@ body.page-warranty {
 @keyframes fall {
   to {
     transform: translateY(105vh) rotate(360deg);
+  }
+}
+
+/* =========================
+   STORY PAGES (Blog-Style Customer Testimonials)
+   ========================= */
+
+/* Story Page Body */
+body.story-page {
+  background: #FAFAF9;
+  color: var(--navy);
+}
+
+/* Story Header */
+.story-header {
+  padding: 20px 0;
+  background: #fff;
+  border-bottom: 1px solid rgba(15, 23, 42, .08);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px rgba(2, 6, 23, .04);
+}
+
+.story-header .container {
+  display: flex;
+  align-items: center;
+}
+
+.story-header .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+
+.story-header .logo:hover {
+  opacity: 0.8;
+}
+
+.story-header .logo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--brand) 0%, #F26A1B 100%);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, .22);
+}
+
+.story-header .logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.story-header .logo-tagline {
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--navy);
+  letter-spacing: -.02em;
+}
+
+/* Story Hero */
+.story-hero {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  max-height: 620px;
+  overflow: hidden;
+  background: #0F172A;
+}
+
+.story-hero img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  max-height: 620px;
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
+  opacity: 0.88;
+}
+
+.story-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0), rgba(15, 23, 42, .45));
+  display: flex;
+  align-items: flex-end;
+  padding: 32px;
+}
+
+.story-hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, .92);
+  border: 1px solid rgba(15, 23, 42, .12);
+  padding: 10px 18px;
+  border-radius: 999px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px rgba(2, 6, 23, .14);
+}
+
+.story-location {
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--navy);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+/* Story Main Content */
+.story-main {
+  padding: 60px 0 80px;
+}
+
+.story-container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.story-article {
+  background: #fff;
+  border-radius: 24px;
+  padding: clamp(32px, 6vw, 64px);
+  box-shadow: 0 18px 48px rgba(2, 6, 23, .06);
+  border: 1px solid rgba(15, 23, 42, .06);
+}
+
+/* Story Intro */
+.story-intro {
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 2px solid rgba(15, 23, 42, .08);
+}
+
+.story-title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 900;
+  line-height: 1.15;
+  margin: 0 0 14px;
+  color: var(--navy);
+}
+
+.story-byline {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(15, 23, 42, .56);
+  font-style: italic;
+  margin: 0;
+}
+
+/* Story Body */
+.story-body {
+  font-size: 19px;
+  line-height: 1.75;
+  color: rgba(15, 23, 42, .82);
+}
+
+.story-body p {
+  margin: 0 0 24px;
+}
+
+.story-body p:last-child {
+  margin-bottom: 0;
+}
+
+.story-lead {
+  font-size: 22px !important;
+  font-weight: 600;
+  line-height: 1.6;
+  color: rgba(15, 23, 42, .88);
+  margin-bottom: 32px !important;
+}
+
+.story-body em {
+  font-style: italic;
+  color: rgba(15, 23, 42, .72);
+}
+
+.story-body strong {
+  font-weight: 800;
+  color: var(--brand);
+}
+
+/* Story Quote (Pull Quote) */
+.story-quote {
+  margin: 40px 0;
+  padding: 24px 32px;
+  border-left: 4px solid var(--brand);
+  background: linear-gradient(135deg, rgba(245, 158, 11, .06), rgba(242, 106, 27, .04));
+  border-radius: 12px;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: rgba(15, 23, 42, .88);
+  font-style: italic;
+}
+
+.story-signature {
+  margin-top: 48px !important;
+  padding-top: 24px;
+  border-top: 1px solid rgba(15, 23, 42, .10);
+  font-size: 18px !important;
+  font-weight: 700;
+  color: rgba(15, 23, 42, .68);
+  text-align: right;
+}
+
+/* Story CTA Section */
+.story-cta {
+  margin-top: 60px;
+  padding: 0 24px;
+}
+
+.story-cta-card {
+  max-width: 760px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgba(43, 110, 255, .06), rgba(77, 163, 255, .04));
+  border: 1px solid rgba(43, 110, 255, .14);
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+}
+
+.story-cta-card h2 {
+  font-size: 28px;
+  font-weight: 900;
+  margin: 0 0 12px;
+  color: var(--navy);
+}
+
+.story-cta-card p {
+  font-size: 17px;
+  color: rgba(15, 23, 42, .68);
+  margin: 0 0 28px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.story-cta-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Story Footer */
+.story-footer {
+  background: #0F172A;
+  color: rgba(255, 255, 255, .42);
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 13px;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+}
+
+.story-footer p {
+  margin: 0;
+}
+
+/* Responsive: Story Pages */
+@media (max-width: 768px) {
+  .story-hero-overlay {
+    padding: 24px;
+  }
+
+  .story-article {
+    padding: 28px;
+  }
+
+  .story-body {
+    font-size: 18px;
+  }
+
+  .story-lead {
+    font-size: 20px !important;
+  }
+
+  .story-quote {
+    font-size: 19px;
+    padding: 20px 24px;
+  }
+
+  .story-cta-card {
+    padding: 32px 24px;
+  }
+
+  .story-cta-actions {
+    flex-direction: column;
+  }
+
+  .story-cta-actions .btn {
+    width: 100%;
+    justify-content: center;
   }
 }
